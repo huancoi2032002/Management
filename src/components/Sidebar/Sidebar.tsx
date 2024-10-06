@@ -2,10 +2,10 @@ import React from "react";
 import { DashboardIcon, MonitorIcon, DotRowIcon, MessageIcon, QuestionMarkIcon, ListIcon, ChartIcon, SettingIcon, ColDotIcon, LogOutIcon } from "../../assets/constrain";
 import { Link } from "react-router-dom";
 import { LogoAlta } from "../../assets/logo";
-import './Menubar.scss'
+import './Sidebar.scss'
 
-// Đây là Menubar
-type MenubarProps = {
+// Đây là Sidebar
+type SidebarProps = {
 
 }
 type ItemMenuProps = {
@@ -13,7 +13,7 @@ type ItemMenuProps = {
     title: string
 }
 
-const SvgService = () => { //
+export const SvgService = () => { //
     return (
         <div className="relative">
             <div className="absolute bottom-[4px] left-[3px]">
@@ -42,9 +42,9 @@ const ItemMenu: React.FC<ItemMenuProps> = ({ icon, title }) => {
     )
 }
 
-const Menubar: React.FC<MenubarProps> = () => {
+const Sidebar: React.FC<SidebarProps> = () => {
     return (
-        <div className="w-[200px] h-full relative menubar">
+        <div className="w-[200px] h-full relative sidebar">
             <div className="w-full h-auto flex items-center justify-center py-[60px]">
                 <LogoAlta className="w-[88px] h-[64px]" />
             </div>
@@ -77,4 +77,4 @@ const Menubar: React.FC<MenubarProps> = () => {
     );
 }
 
-export default Menubar;
+export default Sidebar;

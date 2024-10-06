@@ -1,0 +1,44 @@
+.custom-day-datefilter {
+    color: var(--gray-gray-400, #858585);
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    /* 131.25% */
+}
+
+.custom-datepicker {
+    border-radius: 6px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(7.5px);
+}
+
+.custom-p-datepicker {
+    color: var(--blue-primary-600, #FF9138);
+    text-align: right;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.custom-p-title-day {
+    color: var(--blue-primary-500, #FF9138);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    /* 16.8px */
+}
+
+.custom-p-day {
+    color: var(--gray-gray-500, #666);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    /* 16.8px */
+}
