@@ -1,0 +1,20 @@
+.custom-addbutton {
+    border-radius: 8px 0px 0px 8px;
+    background: var(--orange-orange-50, #FFF2E7);
+
+    /* down */
+    box-shadow: 0px 0px 6px 0px #E7E9F2;
+
+
+    display: flex;
+    /* Ensure flex layout */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // Remove height restrictions
+    height: auto; // Ensure height is auto
+    min-height: unset; // Unset any minimum height if necessary
+
+
+}

@@ -14,6 +14,7 @@ export default {
                 'orange-orange-400': '#FF9138',
                 'orange-orange-300': '#FFAC6A',
                 'orange-orange-200': '#FFC89B',
+                'orange-orange-100': '#FFE3CD',
                 'orange-orange-50': '#FFF2E7',
                 'bg-dashboard': '#F6F6F6'
             },
@@ -28,7 +29,8 @@ export default {
                 'queue-red': '#E73F3F',
                 'gray-gray-300': '#7E7D88',
                 'gray-gray-400': '#535261',
-                
+                'gray-gray-500': '#282739',
+
             },
             fontFamily: {
                 'nunito': ['Nunito', 'sans-serif'],
@@ -60,6 +62,19 @@ export default {
                 'queue-red': '#E73F3F',
                 'gray-gray-300': '#7E7D88',
             },
+            outlineColor: {
+                'queue-primary-text': '#F5F5F5',
+                'gray-blue-gray-3': '#A9A9B0',
+                'orange-orange-600': '#BF5805',
+                'orange-orange-500': '#FF7506',
+                'orange-orange-400': '#FF9138',
+                'orange-orange-300': '#FFAC6A',
+                'orange-orange-200': '#FFC89B',
+                'queue-red': '#E73F3F',
+                'gray-gray-300': '#7E7D88',
+                'gray-gray-400': '#535261',
+                'gray-gray-500': '#282739',
+            }
         },
         screens: {
             'sm': '640px',

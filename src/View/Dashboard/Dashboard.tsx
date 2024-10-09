@@ -38,9 +38,6 @@ const Dashboard: React.FC<DashboardProps> = () => { //Đây là trang Dashboard
     return (
         <LayoutMain>
             <div className="relative w-full h-full flex">
-                <div className="absolute top-0 z-[1]">
-                    <Topbar />
-                </div>
                 <div className="flex-1 mt-[106px] px-6 flex flex-col gap-4">
                     <div>
                         <h1 className="text-2xl font-nunito font-bold leading-[36px] text-orange-orange-500">Biểu đồ cấp số</h1>
