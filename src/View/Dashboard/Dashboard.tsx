@@ -9,6 +9,7 @@ import './Dashboard.scss'
 import { MonitorIcon } from "../../assets/constrain";
 import Dot from "../../components/Dot/Dot";
 import DatePicker from "../../components/DatePicker/DatePicker";
+import StaticChart from "./Components/ChartContainer/ChartContainer";
 
 
 interface DashboardProps {
@@ -71,6 +72,9 @@ const Dashboard: React.FC<DashboardProps> = () => { //Đây là trang Dashboard
                             icon={<Saved />}
                             percent={-22.41}
                         />
+                    </div>
+                    <div className="w-[791px] h-[484px] flex justify-center items-center flex-shrink-0">
+                        <StaticChart  />
                     </div>
                 </div>
                 <div className="h-full bg-white pt-[106px]">

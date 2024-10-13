@@ -1,4 +1,6 @@
-import React ,{ useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Pagination from "../../../../components/Pagination/Pagination";
 
 export interface DeviceDataItem {
     deviceCode: string;
@@ -24,7 +26,7 @@ const Columns: React.FC<DeviceDataTitle> = ({ title, width }) => {
     return (
         <div
             className={`h-[49px] font-medium bg-orange-orange-400 px-2 flex items-center`}
-            style={{ width }} // Sử dụng width từ props
+            style={{ width }} // Use width from props
         >
             <span className="font-nunito text-[16px] text-white">{title}</span>
         </div>
@@ -48,22 +50,14 @@ const Row = (props: DeviceDataItem & { index: number }) => {
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
             <div className="w-[145px] px-2 flex items-center">{isActiveConnection ? 'Connected' : 'Disconnected'}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
-            <div className="w-[268px] px-2 flex items-center">{serviceUse}</div>
+            <div className="w-[268px] flex items-start justify-center flex-col px-[17px]"><span className="w-full text-sm font-nunito leading-[21px] overflow-hidden truncate">{serviceUse}</span><Link to="" className="font-nunito text-sm leading-[21px] text-Blue underline">Xem thêm</Link></div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
-            <div className="w-[82px] px-2 flex items-center">
-                <a href="">
-                    <button className="">
-                        Chi tiết
-                    </button>
-                </a>
+            <div className="w-[82px] px-2 flex items-center justify-between">
+                <Link to="/device/devicedetail" className="font-nunito text-sm leading-[21px] text-Blue underline">Chi tiết</Link>
             </div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
-            <div className="w-[106px] px-2 flex items-center">
-                <a href="">
-                    <button className="">
-                        Cập nhật
-                    </button>
-                </a>
+            <div className="w-[106px] px-2 flex items-center justify-between">
+                <Link to="/device/updatedevice" className="font-nunito text-sm leading-[21px] text-Blue underline">Cập nhật</Link>
             </div>
         </div>
     );
@@ -106,6 +100,15 @@ const TableDevice = (props: TableDeviceProps) => {
                         <Row key={index} index={index} {...item} />
                     ))}
                 </div>
+            </div>
+
+
+            <div className="w-full flex justify-end mt-2">
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                />
             </div>
         </div>
     );
