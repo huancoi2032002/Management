@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Device from './View/Device/Device';
 import Service from './View/Service/Service';
 import Reports from './View/Reports/Reports';
+import Settings from './View/Settings/Settings';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/device/*" element={<Device />} />
         <Route path="/service/*" element={<Service />} />
         <Route path="/reports/*" element={<Reports />} />
+        <Route path="/settings/*" element={<Settings />} />
       </Routes>
     </div>
   )

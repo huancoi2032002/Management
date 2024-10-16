@@ -23,7 +23,7 @@ const FakeDataProvider = (): ServiceDataItem[] => {
     }));
 };
 
-const ServiceList = (props: ServiceListProps) => {
+const ServiceList = () => {
     const fakeData = FakeDataProvider();
     return (
         <div className="flex-1 mt-[106px] pl-6 flex flex-col gap-4">

@@ -46,12 +46,44 @@ const Topbar: React.FC<TopbarProps> = () => {
         } else if (pathParts.includes('service')) {
             breadcrumbs.push({ title: 'Dịch vụ', path: '/service' });
             breadcrumbs.push({ title: 'Danh sách dịch vụ', path: '/service' });
+            if (pathParts.includes('addservice')) {
+                breadcrumbs.push({ title: 'Thêm dịch vụ', path: '/service/addservice' });
+            }
+            if (pathParts.includes('updateservice')) {
+                breadcrumbs.push({ title: 'Cập nhật', path: '/service/updateservice' });
+            }
+            if (pathParts.includes('servicedetail')) {
+                breadcrumbs.push({ title: 'Chi tiết', path: '/service/servicedetail' });
+            }
         } else if (pathParts.includes('numbering')) {
             breadcrumbs.push({ title: 'Cấp số', path: '/numbering' });
             breadcrumbs.push({ title: 'Danh sách cấp số', path: '/numbering' });
-        } else if (pathParts.includes('report')) {
-            breadcrumbs.push({ title: 'Báo cáo', path: '/report' });
-            breadcrumbs.push({ title: 'Danh sách báo cáo', path: '/report' });
+        } else if (pathParts.includes('reports')) {
+            breadcrumbs.push({ title: 'Báo cáo', path: '/reports' });
+            breadcrumbs.push({ title: 'Lập báo cáo', path: '/reports' });
+        }else if (pathParts.includes('settings')) {
+            breadcrumbs.push({ title: 'Cài đặt hệ thống', path: '/settings' });
+            if (pathParts.includes('role-management')) {
+                breadcrumbs.push({ title: 'Quản lý vai trò', path: '/settings/role-management' });
+                if (pathParts.includes('add-role')) {
+                    breadcrumbs.push({ title: 'Thêm vai trò', path: '/settings/role-management/add-role' });
+                }
+                if (pathParts.includes('update-role')) {
+                    breadcrumbs.push({ title: 'Cập nhật vai trò', path: '/settings/role-management/update-role' });
+                }
+            }
+            if (pathParts.includes('account-management')) {
+                breadcrumbs.push({ title: 'Quản lý tài khoản', path: '/settings/account-management' });
+                if (pathParts.includes('add-account')) {
+                    breadcrumbs.push({ title: 'Thêm tài khoản', path: '/settings/account-management/add-account' });
+                }
+                if (pathParts.includes('update-account')) {
+                    breadcrumbs.push({ title: 'Cập nhật tài khoản', path: '/settings/account-management/update-account' });
+                }
+            }
+            if (pathParts.includes('userlog')) {
+                breadcrumbs.push({ title: 'Nhật ký người dùng', path: '/settings/userlog' });
+            }
         } else {
             // Nếu không có điều kiện nào khớp, xây dựng breadcrumb theo đường dẫn
             pathParts.forEach((part, index) => {

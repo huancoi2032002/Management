@@ -42,20 +42,27 @@ const Row = (props: DeviceDataItem & { index: number }) => {
         <div className={`w-full flex h-[49px] ${bgColor}`}>
             <div className="w-[103px] px-2 flex items-center">{deviceCode}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
+
             <div className="w-[99px] px-2 flex items-center">{deviceName}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
+        
             <div className="w-[138px] px-2 flex items-center">{IPAddress}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
+
             <div className="w-[171px] px-2 flex items-center">{isActiveStatus ? 'Active' : 'Inactive'}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
+
             <div className="w-[145px] px-2 flex items-center">{isActiveConnection ? 'Connected' : 'Disconnected'}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
-            <div className="w-[268px] flex items-start justify-center flex-col px-[17px]"><span className="w-full text-sm font-nunito leading-[21px] overflow-hidden truncate">{serviceUse}</span><Link to="" className="font-nunito text-sm leading-[21px] text-Blue underline">Xem thêm</Link></div>
+
+            <div className="w-[266px] flex items-start justify-center flex-col px-[17px]"><span className="w-full text-sm font-nunito leading-[21px] overflow-hidden truncate">{serviceUse}</span><Link to="" className="font-nunito text-sm leading-[21px] text-Blue underline">Xem thêm</Link></div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
+
             <div className="w-[82px] px-2 flex items-center justify-between">
                 <Link to="/device/devicedetail" className="font-nunito text-sm leading-[21px] text-Blue underline">Chi tiết</Link>
             </div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
+
             <div className="w-[106px] px-2 flex items-center justify-between">
                 <Link to="/device/updatedevice" className="font-nunito text-sm leading-[21px] text-Blue underline">Cập nhật</Link>
             </div>
