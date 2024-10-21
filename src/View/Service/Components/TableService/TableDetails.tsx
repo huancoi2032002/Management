@@ -32,7 +32,7 @@ const Row = (props: ServiceDetailsData & { index: number }) => {
     const bgColor = props.index % 2 === 1 ? "bg-orange-orange-50" : "bg-white";
 
     return (
-        <div className={`w-full flex h-[49px] ${bgColor}`}>
+        <div className={`w-full flex h-[49px] text-sm ${bgColor}`}>
             <div className="w-[334px] px-2 flex items-center">{serviceCode}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div>
             <div className="w-[334px] px-2 flex items-center">{isActiveStatus ? 'Active' : 'Inactive'}</div>

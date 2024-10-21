@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "../../../../../components/Pagination/Pagination";
 
-export interface TableRoleItem {
-    roleName: string;
-    numberPerson: string;
-    describe: string;
-    roleUpdate: string;
+export interface TableUserLogItem {
+    username: string;
+    timeImpact: string;
+    IP: string;
+    operation: string;
 }
 
-export interface TableRoleProps {
-    data: TableRoleItem[];
+export interface TableUserLogProps {
+    data: TableUserLogItem[];
 }
 
-interface TableRoleTitle {
+interface TableUserLogTitle {
     title: string;
     width?: string;
 }
-const Columns: React.FC<TableRoleTitle> = ({ title, width }) => {
+const Columns: React.FC<TableUserLogTitle> = ({ title, width }) => {
     return (
         <div
             className={`h-[49px] font-medium bg-orange-orange-400 px-2 flex items-center`}
@@ -28,31 +28,31 @@ const Columns: React.FC<TableRoleTitle> = ({ title, width }) => {
     );
 };
 
-const Row = (props: TableRoleItem & { index: number }) => {
-    const { roleName, numberPerson, describe } = props;
+const Row = (props: TableUserLogItem & { index: number }) => {
+    const { username, timeImpact, IP, operation } = props;
 
     const bgColor = props.index % 2 === 1 ? "bg-orange-orange-50" : "bg-white";
 
     return (
         <div className={`w-full flex h-[49px] ${bgColor}`}>
-            <div className="w-[224px] text-sm px-2 flex items-center">{roleName}</div>
-            <div className="w-[1px]  h-full bg-orange-orange-100"></div> {/* Vertical line */}
+            <div className="w-[266px] text-sm text-gray-gray-400 px-2 flex items-center">{username}</div>
+            <div className="w-[1px] h-full  bg-orange-orange-100"></div> {/* Vertical line */}
 
-            <div className="w-[224px] text-sm px-2 flex items-center">{numberPerson}</div>
-            <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
+            <div className="w-[240px] text-sm text-gray-gray-400 px-2 flex items-center">{timeImpact}</div>
+            <div className="w-[1px] h-full  bg-orange-orange-100"></div> {/* Vertical line */}
 
-            <div className="w-[537px] flex items-start justify-center flex-col px-[17px]">
-                <span className="w-full text-sm font-nunito leading-[21px] overflow-hidden truncate">{describe}</span>
+            <div className="w-[216px] flex items-start justify-center flex-col px-[17px]">
+                <span className="w-full text-gray-gray-400 text-sm font-nunito leading-[21px] overflow-hidden truncate">{IP}</span>
             </div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
 
-            <div className="w-[125px] px-2 flex items-center justify-center">
-                <Link to="/settings/role-management/update-role" className="font-nunito text-sm leading-[21px] text-Blue underline">Cập nhật</Link>
+            <div className="w-[386px] px-2 flex items-center justify-center">
+                <span className="w-full text-gray-gray-400 text-sm font-nunito leading-[21px] overflow-hidden truncate">{operation}</span>
             </div>
         </div>
     );
 };
-const TableRole = (props: TableRoleProps) => {
+const TableUserLog = (props: TableUserLogProps) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const pageSize = 9;
 
@@ -67,10 +67,10 @@ const TableRole = (props: TableRoleProps) => {
             <div className="flex flex-col rounded-xl overflow-hidden">
                 <div className="flex">
                     {[
-                        { title: "Mã dịch vụ", width: "224px" },
-                        { title: "Tên dịch vụ", width: "224px" },
-                        { title: "Mô tả", width: "537px" },
-                        { title: "", width: "125px" }
+                        { title: "Tên đăng nhập", width: "266px" },
+                        { title: "Thời gian tác động", width: "240px" },
+                        { title: "IP thực hiện", width: "216px" },
+                        { title: "Thao tác thực hiện", width: "386px" }
                     ].map((column, index) => (
                         <React.Fragment key={index}>
                             <Columns title={column.title} width={column.width} />
@@ -98,4 +98,4 @@ const TableRole = (props: TableRoleProps) => {
     );
 };
 
-export default TableRole;
+export default TableUserLog;

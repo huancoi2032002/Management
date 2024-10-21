@@ -49,7 +49,7 @@ const Row = (props: TableReportsData & { index: number }) => {
     const bgColor = props.index % 2 === 1 ? "bg-orange-orange-50" : "bg-white";
 
     return (
-        <div className={`w-full flex h-[49px] ${bgColor} z-10`}>
+        <div className={`w-full flex h-[49px] ${bgColor} z-10 text-sm`}>
             <div className="w-[226px] px-2 flex items-center">{stt}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
             <div className="w-[232px] px-2 flex items-center">{serviceName}</div>

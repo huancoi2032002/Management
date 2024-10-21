@@ -37,7 +37,7 @@ const Row = (props: ServiceDataItem & { index: number }) => {
     const bgColor = props.index % 2 === 1 ? "bg-orange-orange-50" : "bg-white";
 
     return (
-        <div className={`w-full flex h-[49px] ${bgColor}`}>
+        <div className={`w-full flex h-[49px] text-sm ${bgColor}`}>
             <div className="w-[150px] px-2 flex items-center">{serviceCode}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
             <div className="w-[224px] px-2 flex items-center">{serviceName}</div>

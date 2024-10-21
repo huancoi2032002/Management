@@ -11,7 +11,7 @@ const Settings = () => {
                 <Routes>
                     <Route path="role-management/*" element={<RoleManagement />} />
                     <Route path="account-management/*" element={<AccountManagement />} />
-                    <Route path="updateservice" element={<UserLog />} />
+                    <Route path="userlog" element={<UserLog />} />
                 </Routes>
             </div>
         </LayoutMain>

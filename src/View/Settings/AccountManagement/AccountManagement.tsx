@@ -13,6 +13,8 @@ const AccountManagement = (props: AccountManagementProps) => {
         <div className="w-full h-full">
             <Routes>
                 <Route path="/" element={<ListAccount />} />
+                <Route path="/add-account" element={<AddAccount />} />
+                <Route path="/update-account" element={<UpdateAccount />} />
             </Routes>
         </div>
     );
