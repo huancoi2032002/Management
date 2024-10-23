@@ -10,7 +10,7 @@ const FakeDataProvider = (): TableReportsData[] => { // dũ liệu fake để te
         stt: `201000${index + 1}`,
         serviceName: `Khám ${index + 1}`,
         timeIssue: `07:20 - 0${index + 1}/10/2021`,
-        isActiveStatus: index % 2 === 0, // Chẵn: Active, Lẻ: Inactive
+        isActiveStatus: Math.floor(Math.random() * 3) + 1,
         source: index % 2 === 0,
     }));
 };

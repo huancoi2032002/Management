@@ -55,9 +55,15 @@ const Topbar: React.FC<TopbarProps> = () => {
             if (pathParts.includes('servicedetail')) {
                 breadcrumbs.push({ title: 'Chi tiết', path: '/service/servicedetail' });
             }
-        } else if (pathParts.includes('numbering')) {
-            breadcrumbs.push({ title: 'Cấp số', path: '/numbering' });
-            breadcrumbs.push({ title: 'Danh sách cấp số', path: '/numbering' });
+        } else if (pathParts.includes('progression')) {
+            breadcrumbs.push({ title: 'Cấp số', path: '/progression' });
+            breadcrumbs.push({ title: 'Danh sách cấp số', path: '/progression' });
+            if (pathParts.includes('add-progression')) {
+                breadcrumbs.push({ title: 'Cấp số mới', path: '/progression/add-progression' });
+            }
+            if (pathParts.includes('progression-details')) {
+                breadcrumbs.push({ title: 'Chi tiết', path: '/progression/progression-details' });
+            }
         } else if (pathParts.includes('reports')) {
             breadcrumbs.push({ title: 'Báo cáo', path: '/reports' });
             breadcrumbs.push({ title: 'Lập báo cáo', path: '/reports' });

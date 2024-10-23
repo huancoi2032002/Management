@@ -754,3 +754,9 @@ export const ArrowRight = ({ className }: SvgProps) => (
         <path d="M6.86193 12.0927L7.98759 10.8039L9.82179 8.70379C10.2046 8.25891 9.93036 7.5 9.38181 7.5L5.82198 7.5L2.61641 7.5C2.06787 7.5 1.79359 8.25891 2.18215 8.70379L5.14201 12.0927C5.61056 12.6358 6.38767 12.6358 6.86193 12.0927Z" fill="white" />
     </svg>
 )
+export const CloseIcon = ({ className }: SvgProps) => (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18" stroke="#FF9138" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M6 6L18 18" stroke="#FF9138" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+)

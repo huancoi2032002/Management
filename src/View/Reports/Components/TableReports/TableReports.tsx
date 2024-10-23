@@ -6,13 +6,14 @@ import DropdownService from "../DropDown/DropdownService";
 import DropDownTimeIssue from "../DropDown/DropDownTimeIssue";
 import DropDownStatus from "../DropDown/DropDownStatus";
 import DropdownSource from "../DropDown/DropdownSource";
+import DotTable from "../../../../components/Dot/DotTable";
 
 
 export interface TableReportsData {
     stt: string
     serviceName: string
     timeIssue: string
-    isActiveStatus: boolean
+    isActiveStatus: number
     source: boolean
 }
 interface TableReportsProps {
@@ -56,7 +57,17 @@ const Row = (props: TableReportsData & { index: number }) => {
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
             <div className="w-[238px] px-2 flex items-center">{timeIssue}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
-            <div className="w-[216px] px-2 flex items-center">{isActiveStatus ? 'Active' : 'Inactive'}</div>
+            <div className="w-[216px] px-2 flex items-center">
+                {isActiveStatus === 1 ? (
+                    <DotTable bg="4277FF" width="8" height="8" label="Đang chờ" />
+                ) : isActiveStatus === 2 ? (
+                    <DotTable bg="E73F3F" width="8" height="8" label="Bỏ qua" />
+                ) : isActiveStatus === 3 ? (
+                    <DotTable bg="7E7D88" width="8" height="8" label="Đã sử dụng" />
+                ) :  (
+                    <DotTable bg="7E7D88" width="8" height="8" label="Đã sử dụng" />
+                )}
+            </div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
             <div className="w-[196px] px-2 flex items-center">{source ? 'Kiosk' : 'Hệ thống'}</div>
         </div>

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Pagination from "../../../../../components/Pagination/Pagination";
+import DotTable from "../../../../../components/Dot/DotTable";
 
 export interface TableAccountData {
     accountName: string
@@ -8,7 +9,7 @@ export interface TableAccountData {
     phoneNumber: string
     email: string
     role: string
-    isActive: boolean
+    isActive: number
     updateAccount: string
 }
 
@@ -55,7 +56,15 @@ const Row = (props: TableAccountData & { index: number }) => {
             <div className="w-[114px] px-2 flex items-center">{role}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
 
-            <div className="w-[193px] px-2 flex items-center">{isActive ? 'Active' : 'Inactive'}</div>
+            <div className="w-[193px] px-2 flex items-center">
+                {isActive === 1 ? (
+                    <DotTable bg="34CD26" width="8" height="8" label="Hoạt động" />
+                ) : isActive === 2 ? (
+                    <DotTable bg="EC3740" width="8" height="8" label="Ngưng hoạt động" />
+                ) : (
+                    <DotTable bg="EC3740" width="8" height="8" label="Ngưng hoạt động" />
+                )}
+            </div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
 
             <div className="w-[99px] px-2 flex items-center justify-center">

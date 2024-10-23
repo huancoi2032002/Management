@@ -22,8 +22,8 @@ const FakeDataProvider = (): DeviceDataItem[] => { // dũ liệu fake để test
         deviceCode: `DEV${index + 1}`,
         deviceName: `Thiết bị ${index + 1}`,
         IPAddress: `192.168.1.${index + 1}`,
-        isActiveStatus: index % 2 === 0, // Chẵn: Active, Lẻ: Inactive
-        isActiveConnection: index % 2 === 0, // Chẵn: Connected, Lẻ: Disconnected
+        isActiveStatus: Math.floor(Math.random() * 2) + 1,
+        isActiveConnection: Math.floor(Math.random() * 2) + 1, 
         serviceUse: `Khám tim mạch, Khám Sản - Phụ khoa, Khám răng hàm mặt, Khám tai mũi họng, Khám hô hấp, Khám tổng quát ${index + 1}`,
         deviceDetail: "",
         deviceUpdate: ""
@@ -39,7 +39,7 @@ const DeviceList = (props: DeviceListProps) => {
                     <Selection title="Trạng thái hoạt động" options={optionActives} width="300px" height="72px" color="#282739" icon="NoIcon"/>
                     <Selection title="Trạng thái kết nối" options={optionConnect} width="300px" height="72px" color="#282739" icon="NoIcon" />
                 </div>
-                <Search />
+                <Search icon="Icon" />
             </div>
             <div className="flex h-auto justify-between items-start">
                 <TableDevice data={fakeData} />

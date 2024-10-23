@@ -16,7 +16,7 @@ const FakeDataProvider = (): ServiceDataItem[] => {
     return Array.from({ length: 100 }, (_, index) => ({
         serviceCode: `DEV${index + 1}`,
         serviceName: `Thiết bị ${index + 1}`,
-        isActiveStatus: index % 2 === 0, // Chẵn: Active, Lẻ: Inactive
+        isActiveStatus: Math.floor(Math.random() * 2) + 1,
         describe: `Khám tim mạch, Khám Sản - Phụ khoa, Khám răng hàm mặt, Khám tai mũi họng, Khám hô hấp, Khám tổng quát ${index + 1}`,
         serivceDetail: "", 
         serivceUpdate: "" 
@@ -32,7 +32,7 @@ const ServiceList = () => {
                 <div className="flex items-center gap-6">
                     <Selection title="Trạng thái hoạt động" options={optionActives} width="300px" height="72px" color="#282739" icon="NoIcon" />
                 </div>
-                <Search />
+                <Search icon="Icon"/>
             </div>
             <div className="flex h-auto justify-between items-start">
                 <TableService data={fakeData} />

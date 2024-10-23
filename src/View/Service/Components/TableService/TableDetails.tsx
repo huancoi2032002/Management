@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Pagination from "../../../../components/Pagination/Pagination";
+import DotTable from "../../../../components/Dot/DotTable";
 
 export interface ServiceDetailsData {
     serviceCode: string;
-    isActiveStatus: boolean;
+    isActiveStatus: number;
 }
 
 export interface TableServiceProps {
@@ -35,7 +36,15 @@ const Row = (props: ServiceDetailsData & { index: number }) => {
         <div className={`w-full flex h-[49px] text-sm ${bgColor}`}>
             <div className="w-[334px] px-2 flex items-center">{serviceCode}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div>
-            <div className="w-[334px] px-2 flex items-center">{isActiveStatus ? 'Active' : 'Inactive'}</div>
+            <div className="w-[334px] px-2 flex items-center">
+                {isActiveStatus === 1 ? (
+                    <DotTable bg="34CD26" width="8" height="8" label="Hoạt động" />
+                ) : isActiveStatus === 2 ? (
+                    <DotTable bg="EC3740" width="8" height="8" label="Ngưng hoạt động" />
+                ) : (
+                    <DotTable bg="EC3740" width="8" height="8" label="Ngưng hoạt động" />
+                )}
+            </div>
         </div>
     );
 };

@@ -14,7 +14,7 @@ const FakeDataProvider = (): TableAccountData[] => { // dũ liệu fake để te
         phoneNumber: `038869911${index + 1}`,
         email: `tuyetnguyen123@gmail.com`,
         role: `Kế toán`,
-        isActive: index % 2 === 0,
+        isActive: Math.floor(Math.random() * 2) + 1,
         updateAccount: ""
     }));
 };

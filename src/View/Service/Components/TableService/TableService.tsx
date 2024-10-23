@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "../../../../components/Pagination/Pagination";
+import DotTable from "../../../../components/Dot/DotTable";
 
 export interface ServiceDataItem {
     serviceCode: string;
     serviceName: string;
     describe: string;
-    isActiveStatus: boolean;
+    isActiveStatus: number;
     serivceDetail: string;
     serivceUpdate: string;
 }
@@ -44,7 +45,15 @@ const Row = (props: ServiceDataItem & { index: number }) => {
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
             <div className="w-[230px] flex items-start justify-center flex-col px-[17px]"><span className="w-full text-sm font-nunito leading-[21px] overflow-hidden truncate">{describe}</span></div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
-            <div className="w-[253px] px-2 flex items-center">{isActiveStatus ? 'Active' : 'Inactive'}</div>
+            <div className="w-[253px] px-2 flex items-center">
+                {isActiveStatus === 1 ? (
+                    <DotTable bg="34CD26" width="8" height="8" label="Hoạt động" />
+                ) : isActiveStatus === 2 ? (
+                    <DotTable bg="EC3740" width="8" height="8" label="Ngưng hoạt động" />
+                ) : (
+                    <DotTable bg="EC3740" width="8" height="8" label="Ngưng hoạt động" />
+                )}
+            </div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
             <div className="w-[125px] px-2 flex items-center justify-center">
                 <Link to="/service/servicedetail" className="font-nunito text-sm leading-[21px] text-Blue underline">Chi tiết</Link>

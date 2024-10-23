@@ -19,7 +19,7 @@ const dataOptions = [
 const FakeDataProvider = (): ServiceDetailsData[] => {
     return Array.from({ length: 100 }, (_, index) => ({
         serviceCode: `201000${index + 1}`,
-        isActiveStatus: index % 2 === 0, // Chẵn: Active, Lẻ: Inactive
+        isActiveStatus: Math.floor(Math.random() * 2) + 1, // Chẵn: Active, Lẻ: Inactive
     }));
 };
 

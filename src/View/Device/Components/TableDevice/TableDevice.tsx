@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from "../../../../components/Pagination/Pagination";
+import DotTable from "../../../../components/Dot/DotTable";
 
 export interface DeviceDataItem {
     deviceCode: string;
     deviceName: string;
     IPAddress: string;
-    isActiveStatus: boolean;
-    isActiveConnection: boolean;
+    isActiveStatus: number;
+    isActiveConnection: number;
     serviceUse: string;
     deviceDetail: string;
     deviceUpdate: string;
 }
 
-export interface TableDeviceProps {
+interface TableDeviceProps {
     data: DeviceDataItem[];
 }
 
@@ -45,14 +46,30 @@ const Row = (props: DeviceDataItem & { index: number }) => {
 
             <div className="w-[99px] px-2 flex items-center">{deviceName}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
-        
+
             <div className="w-[138px] px-2 flex items-center">{IPAddress}</div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
 
-            <div className="w-[171px] px-2 flex items-center">{isActiveStatus ? 'Active' : 'Inactive'}</div>
+            <div className="w-[171px] px-2 flex items-center">
+                {isActiveStatus === 1 ? (
+                    <DotTable bg="34CD26" width="8" height="8" label="Hoạt động" />
+                ) : isActiveStatus === 2 ? (
+                    <DotTable bg="EC3740" width="8" height="8" label="Ngưng hoạt động" />
+                ) : (
+                    <DotTable bg="EC3740" width="8" height="8" label="Ngưng hoạt động" />
+                )}
+            </div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
 
-            <div className="w-[145px] px-2 flex items-center">{isActiveConnection ? 'Connected' : 'Disconnected'}</div>
+            <div className="w-[145px] px-2 flex items-center">
+                {isActiveConnection === 1 ? (
+                    <DotTable bg="34CD26" width="8" height="8" label="Kết nối" />
+                ) : isActiveConnection === 2 ? (
+                    <DotTable bg="EC3740" width="8" height="8" label="Mất kết nối" />
+                ) : (
+                    <DotTable bg="EC3740" width="8" height="8" label="Mất kết nối" />
+                )}
+            </div>
             <div className="w-[1px] h-full bg-orange-orange-100"></div> {/* Vertical line */}
 
             <div className="w-[266px] flex items-start justify-center flex-col px-[17px]"><span className="w-full text-sm font-nunito leading-[21px] overflow-hidden truncate">{serviceUse}</span><Link to="" className="font-nunito text-sm leading-[21px] text-Blue underline">Xem thêm</Link></div>

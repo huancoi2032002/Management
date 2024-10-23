@@ -5,10 +5,7 @@ import { LogoAlta } from "../../assets/logo";
 import './Sidebar.scss'
 import DropdownSettings from "../../View/Settings/Components/Dropdown/DropdownSettings";
 
-// Đây là Sidebar
-type SidebarProps = {
-    isActive: boolean;
-}
+
 type ItemMenuProps = {
     icon: React.ReactElement;
     title: string;
@@ -75,11 +72,11 @@ const ItemSettings: React.FC<ItemSettingProps> = ({ icon1, icon2, title, link, i
 
 
 
-const Sidebar: React.FC<SidebarProps> = ({ isActive }) => {
+const Sidebar = () => {
     const location = useLocation(); // Lấy đường dẫn hiện tại
 
     return (
-        <div className="w-[200px] h-full relative sidebar">
+        <div className="w-[200px] h-full relative sidebar z-40">
             <div className="w-full h-auto flex items-center justify-center py-[60px]">
                 <LogoAlta className="w-[88px] h-[64px]" />
             </div>
