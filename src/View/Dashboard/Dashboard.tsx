@@ -1,6 +1,5 @@
 import React from "react";
 import LayoutMain from "../../layouts/LayoutMain/LayoutMain";
-import Topbar from "../../components/Topbar/Topbar";
 import CardDashboard from "./Components/CardDashboard/CardDashboard";
 import { Ellipse10, Ellipse11, Ellipse12, Ellipse13, PersonCall, Saved, Schedule, Schedule1 } from "../../assets";
 import { DotRowIcon, ListIcon, MessageIcon, QuestionMarkIcon } from "../../assets/constrain";
@@ -10,6 +9,7 @@ import { MonitorIcon } from "../../assets/constrain";
 import Dot from "../../components/Dot/Dot";
 import DatePicker from "../../components/DatePicker/DatePicker";
 import StaticChart from "./Components/ChartContainer/ChartContainer";
+import { useNavigate } from "react-router-dom";
 
 
 interface DashboardProps {
@@ -34,7 +34,19 @@ const Dashboard: React.FC<DashboardProps> = () => { //Đây là trang Dashboard
     let percentTotalSeriesWatting = Math.ceil((seriesWaitting / totalSeries) * 100);
     let percentTotalSeriesSkip = Math.ceil((seriesSkip / totalSeries) * 100);
 
+    const openEquipments = useNavigate();
+    const openService =useNavigate();
+    const openSeries = useNavigate();
 
+    const handleOpenEquipments = () => {
+        openEquipments('/device')
+    }
+    const handleOpenService = () => {
+        openService('/service')
+    }
+    const handleOpenSeries = () => {
+        openSeries('/progression')
+    }
 
     return (
         <LayoutMain>
@@ -83,7 +95,7 @@ const Dashboard: React.FC<DashboardProps> = () => { //Đây là trang Dashboard
                             <h1 className="text-2xl font-nunito font-bold leading-[36px] text-orange-orange-500">Tổng quan</h1>
                         </div>
                         <div className="flex flex-col gap-3">
-                            <div className="w-[353px] h-[83px] flex-shrink-0 cardmenu flex items-center px-4 gap-4">{/*Đây là card ở tổng quan */}
+                            <div className="w-[353px] h-[83px] flex-shrink-0 cardmenu flex items-center px-4 gap-4 cursor-pointer" onClick={handleOpenEquipments}>{/*Đây là card ở tổng quan */}
                                 <div className="flex items-center gap-3">
                                     <div className="relative w-[60px] h-[60px]">
                                         <CircleProcess
@@ -133,7 +145,7 @@ const Dashboard: React.FC<DashboardProps> = () => { //Đây là trang Dashboard
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-[353px] h-[83px] flex-shrink-0 cardmenu flex items-center px-4 gap-4">
+                            <div className="w-[353px] h-[83px] flex-shrink-0 cardmenu flex items-center px-4 gap-4 cursor-pointer" onClick={handleOpenService}>
                                 <div className="flex items-center gap-3">
                                     <div className="relative w-[60px] h-[60px]">
                                         <CircleProcess
@@ -193,7 +205,7 @@ const Dashboard: React.FC<DashboardProps> = () => { //Đây là trang Dashboard
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-[353px] h-[83px] flex-shrink-0 cardmenu flex items-center px-4 gap-4">
+                            <div className="w-[353px] h-[83px] flex-shrink-0 cardmenu flex items-center px-4 gap-4 cursor-pointer" onClick={handleOpenSeries}>
                                 <div className="flex items-center gap-3">
                                     <div className="relative w-[60px] h-[60px]">
                                         <CircleProcess

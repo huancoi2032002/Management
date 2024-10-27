@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { LogoAlta } from "../../assets/logo";
 import './Sidebar.scss'
 import DropdownSettings from "../../View/Settings/Components/Dropdown/DropdownSettings";
+import Logout from "../../View/Logout/Logout";
 
 
 type ItemMenuProps = {
@@ -78,7 +79,9 @@ const Sidebar = () => {
     return (
         <div className="w-[200px] h-full relative sidebar z-40">
             <div className="w-full h-auto flex items-center justify-center py-[60px]">
-                <LogoAlta className="w-[88px] h-[64px]" />
+                <Link to='/dashboard'>
+                    <LogoAlta className="w-[88px] h-[64px]" />
+                </Link>
             </div>
             <div className="w-full flex flex-col gap-[6px]">
                 <ItemMenu icon={<DashboardIcon className="group-hover:stroke-orange-orange-500 " />} title="Dashboard" link="/dashboard" isActive={location.pathname.startsWith("/dashboard")} />
@@ -89,14 +92,7 @@ const Sidebar = () => {
                 <ItemSettings icon1={<SettingIcon />} icon2={<DotRowIcon />} title="Cài đặt hệ thống" link="/settings" isActive={location.pathname.startsWith("/settings")} />
             </div>
 
-            <div className="absolute w-[200px] h-[48px] px-3 rounded-lg flex justify-center items-center bottom-[30px]">
-                <Link to="" className="w-full h-full bg-orange-orange-50 group">
-                    <div className="flex w-[176px] p-3 items-center gap-2 flex-shrink-0">
-                        <LogOutIcon className="group-hover:stroke-orange-orange-500 " />
-                        <span className="font-medium text-base leading-[24px] font-nunito text-orange-orange-500">Đăng xuất</span>
-                    </div>
-                </Link>
-            </div>
+            <Logout />
         </div>
     );
 }

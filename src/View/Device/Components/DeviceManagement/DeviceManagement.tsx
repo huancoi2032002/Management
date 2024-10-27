@@ -19,7 +19,7 @@ const InputText: React.FC<DeviceManagementProps> = ({ label, placeholder, type, 
                 <span className=" text-base font-medium leading-[24px]">{label}</span>
                 <VectorStart />
             </div>
-            <Input type={type} haveIcon="NoIcon" status="ReadOnly" placeholder={placeholder} width={width} />
+            <Input type={type} haveIcon="NoIcon" status="Hover" placeholder={placeholder} width={width} />
         </div>
     )
 }

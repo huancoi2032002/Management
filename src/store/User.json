@@ -1,0 +1,29 @@
+[
+    {
+        "accountName": "huancoi2032002",
+        "password": "123456",
+        "avatar": "https://images.pexels.com/photos/735423/pexels-photo-735423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Nguyễn Hữu Huân",
+        "phoneNumber": "0388697342",
+        "email": "huancoi2032002@gmail.com",
+        "roleName": "Kế toán"
+    },
+    {
+        "accountName": "huancoi20320021",
+        "password": "123456",
+        "avatar": "https://images.pexels.com/photos/735423/pexels-photo-735423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Nguyễn Hữu Huân",
+        "phoneNumber": "0388697342",
+        "email": "huancoi2032002@gmail.com",
+        "roleName": "Kế toán"
+    },
+    {
+        "accountName": "huancoi20320021",
+        "password": "123456",
+        "avatar": "https://images.pexels.com/photos/735423/pexels-photo-735423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "name": "Nguyễn Hữu Huân",
+        "phoneNumber": "0388697342",
+        "email": "huancoi2032002@gmail.com",
+        "roleName": "Kế toán"
+    }
+]

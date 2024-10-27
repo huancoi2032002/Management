@@ -19,7 +19,7 @@ const InputText: React.FC<AddAccountProps> = ({ label, placeholder, type, width,
                 <span className=" text-base font-medium leading-[24px]">{label}</span>
                 <VectorStart />
             </div>
-            <Input type={type} haveIcon="NoIcon" status="ReadOnly" placeholder={placeholder} width={width} height={height}/>
+            <Input type={type} haveIcon="NoIcon" status="Hover" placeholder={placeholder} width={width} height={height}/>
         </div>
     )
 }

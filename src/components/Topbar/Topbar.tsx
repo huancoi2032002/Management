@@ -1,24 +1,49 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Bell, FocusBell } from "../../assets/dashboard";
-import Avatar from "../../assets/avatar.jfif";
 import DropDownNofitication from "./DropDownNofitication";
-import { AngleRight, AngleRightIcon } from "../../assets";
+import { AngleRightIcon } from "../../assets";
+import { CustomerData } from "../../store/User/User";
+import { fetchCustomer } from "../../Firebase/Firebase";
 
 interface Breadcrumb {
     title: string;
     path: string;
 }
 
-interface TopbarProps { }
 
-const Topbar: React.FC<TopbarProps> = () => {
+const Topbar: React.FC = () => {
     const [focusBell, setFocusBell] = useState(false);
     const location = useLocation();
+    const openProfile = useNavigate();
+
+    const [customerData, setCustomerData] = useState<CustomerData | null>(null); // Dùng null để xác định khi dữ liệu chưa được load
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                fetchCustomer((data) => {
+                    if (data.length > 0) {
+                        setCustomerData(data[0]); // Lấy dữ liệu của khách hàng đầu tiên
+                        console.log("Fetched customer data:", data[0]); // Log dữ liệu khách hàng đầu tiên
+                    }
+                });
+            } catch (error) {
+                console.error("Error fetching customer data:", error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    if (!customerData) return <div>Loading...</div>; // Hiển thị loading khi dữ liệu chưa sẵn sàng
 
     const handleOpen = () => {
         setFocusBell(prev => !prev);
     };
+
+    const handleProfile = () => {
+        openProfile('/profile')
+    }
 
     const titleMap: { [key: string]: string } = {
         'add-device': 'Thêm thiết bị',
@@ -90,7 +115,10 @@ const Topbar: React.FC<TopbarProps> = () => {
             if (pathParts.includes('userlog')) {
                 breadcrumbs.push({ title: 'Nhật ký người dùng', path: '/settings/userlog' });
             }
-        } else {
+        }else if (pathParts.includes('profile')) {
+            breadcrumbs.push({ title: 'Thông tin cá nhân', path: '/profile' });
+        }
+        else {
             // Nếu không có điều kiện nào khớp, xây dựng breadcrumb theo đường dẫn
             pathParts.forEach((part, index) => {
                 currentPath += `/${part}`;
@@ -137,11 +165,11 @@ const Topbar: React.FC<TopbarProps> = () => {
                         <Bell />
                     </div>
                 )}
-                <div className="flex gap-2 items-center">
-                    <img src={Avatar} className="w-10 h-10 object-cover rounded-full" />
+                <div className="flex gap-2 items-center cursor-pointer" onClick={handleProfile}>
+                    <img src={customerData.avatar} className="w-10 h-10 object-cover rounded-full" />
                     <div className="h-[42px] flex flex-col">
                         <span className="text-gray-gray-300 text-xs font-nunito leading-[18px]">Xin chào</span>
-                        <span className="text-base font-nunito font-semibold leading-[24px] text-gray-gray-400">Lê Quỳnh Ái Vân</span>
+                        <span className="text-base font-nunito font-semibold leading-[24px] text-gray-gray-400">{customerData.name}</span>
                     </div>
                 </div>
             </div>
